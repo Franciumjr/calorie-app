@@ -8,7 +8,7 @@ const Card = ({ data }) => {
   if (!item) return null;
 
   return (
-    <Suspense fallback={<Loading />}>
+    
     <div className='hover:bg-lime-300 tracking-tight  hover:text-black border-zinc-500 border-1 font-sans  text-white p-8 cursor-pointer  shadow-sm rounded-4xl w-full max-w-sm flex flex-col items-center justify-center text-center hover:-translate-y-2 transition-all bg-zinc-700'>
       <div className="mt-4">
         {/* Added a fallback image if image_url is missing */}
@@ -29,7 +29,7 @@ const Card = ({ data }) => {
         </div>
       </div>
     </div>
-    </Suspense>
+    
   )
 }
 
