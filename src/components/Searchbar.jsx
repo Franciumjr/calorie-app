@@ -13,6 +13,7 @@ const Searchbar = ({onSearchChange}) => {
       input: (base) => ({
         ...base,
         backgroundColor: "transparent",
+        
       }),
     };
 
@@ -61,28 +62,49 @@ const Searchbar = ({onSearchChange}) => {
         loadOptions={loadOptions}
         className="flex items-center w-full px-4 py-1 rounded-full border border-zinc-400 transition-all duration-300"
         styles={{
-          control: (baseStyles, state) => ({
-            ...baseStyles,
-
-            backgroundColor: "transparent", // Removes the white background
-            color: "white",
-            border: "none", // Matches zinc-600
-            borderRadius: "9999px", // Matches rounded-full
-            padding: "2px 16px",
-            boxShadow: "none",
-            "&:hover": {
-              borderColor: "#71717a", // Matches zinc-500 on hover
-            },
-            input: (baseStyles) => ({
-              ...baseStyles,
-              color: "white", // Ensures typed text is visible
-            }),
-            placeholder: (baseStyles) => ({
-              ...baseStyles,
-              color: "#a1a1aa", // zinc-400 for placeholder
-            }),
-          }),
-        }}
+    control: (base) => ({
+      ...base,
+      backgroundColor: "transparent",
+      border: "transparent", // zinc-600
+      borderRadius: "9999px",
+      padding: "2px 16px",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "#71717a", // zinc-500
+      },
+    }),
+    input: (base) => ({
+      ...base,
+      // Color of the text while you are typing
+      color: "#e4e4e7", // zinc-200
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "#a1a1aa", // zinc-400
+    }),
+    singleValue: (base) => ({
+      ...base,
+      // Color of the item after you select it
+      color: "#e4e4e7", // zinc-200
+    }),
+    menu: (base) => ({
+      ...base,
+      backgroundColor: "#ffffff", // White background for the dropdown list
+      borderRadius: "12px",
+      marginTop: "8px",
+      overflow: "hidden",
+    }),
+    option: (base, state) => ({
+      ...base,
+      // Autocomplete list text color
+      color: "#000000", // Black text
+      backgroundColor: state.isFocused ? "#f4f4f5" : "white", // zinc-100 on hover
+      cursor: "pointer",
+      "&:active": {
+        backgroundColor: "#e4e4e7",
+      },
+    }),
+  }}
       />
       <div className="flex gap-4">
       <Link to="/bmi"><Button color="lime" radius="full" variant="solid">BMI </Button></Link>

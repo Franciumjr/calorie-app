@@ -22,7 +22,7 @@ const Card = ({ data }) => {
         
         {/* Optional Chaining */}
         <div className="space-y-1 tracking-tight">
-          <p>Calories: <span className="font-bold">{item.nutriments?.['energy-kcal_100g'] ?? "N/A"} kcal</span></p>
+          <p>Calories: <span className="font-bold">{(item.nutriments)?.['energy-kcal_100g']  ?? "N/A"} </span></p>
           <p>Fat: <span className="font-bold"> {item.nutriments?.fat_100g ?? 0}g</span></p>
           <p>Carbohydrates: <span className="font-bold">{item.nutriments?.carbohydrates_100g ?? 0}g</span></p>
           <p>Proteins: <span className="font-bold">{item.nutriments?.proteins_100g ?? 0}g</span></p>

@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <Theme>
+      <Theme appearance='dark'>
         
       <Suspense fallback={<Loading />}>
         <Dashboard />
