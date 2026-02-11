@@ -14,6 +14,7 @@ const Dashboard = () => {
     const [visibleItems, setVisibleItems] = useState(9);
     const [food, setFood] = useState([]);
     const [activeCategory, setActivecategory] = useState("all");
+    const [isLoading, setIsLoading] = useState(false);
     
     const filteredProducts = activeCategory === "all" 
     ? food.products
@@ -24,6 +25,8 @@ const Dashboard = () => {
     
     useEffect(() => {
         const fetchData = async () => { 
+            console.log("Fetching data...");
+            setIsLoading(true);
             try { 
                 const API_URL = "https://world.openfoodfacts.org/api/v2/search?page_size=100&fields=code,product_name,nutriments,image_url,categories";
                 const response = await fetch(API_URL); 
@@ -32,6 +35,8 @@ const Dashboard = () => {
                 console.log(data);
             } catch (error) { 
                 console.error("Error fetching data:", error); 
+            } finally {
+                setIsLoading(false);
             }
             
         }; 
@@ -67,16 +72,21 @@ const Dashboard = () => {
                 <p className="text-center text-gray-500">Search for something to see its nutrition!</p>
                 )}
             </main>
-                <Suspense fallback = {<Skeleton width= "100px" height="100px"></Skeleton>}>
+            {isLoading ? (
                 <div className="mx-12 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {food && food.products && food.products.slice(0, visibleItems).map((item, index) => (
-                            
-                                <Card key={index} data={item} />
-                            
+                    {Array.from({ length: 9 }).map((_, index) => (
+                        <Skeleton key={index} width="100%" height="200px" />
                     ))}
-                    
                 </div>
-                </Suspense>
+            ) : (
+                <div className="mx-12 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredProducts && filteredProducts.slice(0, visibleItems).map((item) => (
+                        <Suspense key={item.code || item.product_name} fallback={<Skeleton width="100%" height="200px" />}>
+                            <Card data={item} />
+                        </Suspense>
+                    ))}
+                </div>
+            )}
             <Button color="lime" radius="full" onClick={handleLoadMore}>Load More</Button>
         </div>
         
