@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/calorie-app/src/app/globals.css"],"sourcesContent":["@import \"tailwindcss\";\r\n@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');\r\n@import \"@radix-ui/themes/styles.css\";\r\n\r\nbody {\r\n    @apply bg-zinc-800 text-white ;\r\n}\r\n\r\n\r\n\r\n\r\n@theme {\r\n    --font-inter: 'Inter', sans-serif;\r\n}\r\n"],"names":[],"mappings":"AAKI;;AAMJ"}}]
+}

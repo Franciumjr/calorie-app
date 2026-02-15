@@ -1,3 +1,5 @@
+"use client"
+
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import {Button, Avatar} from "@radix-ui/themes"
@@ -52,9 +54,7 @@ const Searchbar = ({onSearchChange}) => {
   }
   return (
     <div className="mx-4 max-h-screen justify-between mt-4 bg-zinc-800 font-sans space-x-3 flex flex-row gap-4">
-      <Link to="/">
-        <h1 className="font-extrabold text-lime-300">BroScience</h1>
-      </Link>
+      
       <AsyncPaginate
         placeholder="Search for foods..."
         debounceTimeout={600}
@@ -108,7 +108,7 @@ const Searchbar = ({onSearchChange}) => {
       />
       <div className="flex gap-4">
       <Link to="/bmi"><Button color="lime" radius="full" variant="solid">BMI </Button></Link>
-      <Avatar radius="full" src="/profile.jpg"></Avatar>
+      
       </div>
     </div>
   );

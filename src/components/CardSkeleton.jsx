@@ -1,5 +1,5 @@
-import React from 'react'
 
+import { Skeleton } from '@radix-ui/themes'
 const CardSkeleton = () => {
   return (
     <div className="p-6 bg-zinc-700/50 rounded-2xl flex flex-col items-center">

@@ -1,0 +1,8 @@
+/* [project]/calorie-app/src/app/globals.css [app-client] (css) */
+@apply bg-zinc-800 text-white;
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+/*# sourceMappingURL=calorie-app_src_app_globals_css_bad6b30c._.single.css.map*/
