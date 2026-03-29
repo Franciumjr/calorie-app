@@ -9,7 +9,7 @@ const Card = ({ data }) => {
   if (!item) return null;
 
   return (
-    <div className="tracking-tight font-inter   border-zinc-500 border-1  text-white p-8 cursor-pointer  shadow-sm rounded-4xl w-full max-w-sm flex flex-col items-center justify-center text-center hover:-translate-y-1 transition-all bg-zinc-700">
+    <div className="tracking-tight font-inter border-zinc-200 border-1 text-black p-8 cursor-pointer shadow-sm rounded-4xl w-full max-w-sm flex flex-col items-center justify-center text-center hover:-translate-y-1 transition-all bg-zinc-50">
       
 
       <div className="mt-4">

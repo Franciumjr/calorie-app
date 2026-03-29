@@ -4,7 +4,7 @@ import { Button, Avatar, Box, Card, Flex, Text } from "@radix-ui/themes";
 import { ChevronFirst } from "lucide-react";
 import { navLinks } from "../constants";
 import Link from 'next/link'
-import { DotsHorizontalIcon, HomeIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from "@radix-ui/react-icons"
+import { DotsHorizontalIcon, HomeIcon, CaretSortIcon } from "@radix-ui/react-icons"
 import { useState } from "react";
 
 
@@ -12,35 +12,36 @@ const Sidebar = () => {
   const [page, setPage] = useState(null)
   const [expanded, setExpanded] = useState(true)
   return (
-    <aside className="h-screen font-inter bg-zinc-800">
+    <aside className="h-screen font-inter bg-zinc-100 p-2">
+
       <nav className="h-full flex flex-col ">
+
+        {/** Dashboard Header **/}
         <div className="p-4 pb-2 flex justify-between items-center">
           <div className="flex items-start gap-4">
-          <Avatar color="white" fallback ="#"></Avatar>
-          <Link className={expanded ? "inline transition-all" : 'hidden transition-all'} to="/">
-            <h1 className="font-extrabold text-white">BroCollie</h1>
-            <Text as="div" size="1" color="gray">
-                    Admin
-            </Text>
-          </Link>
+            <Avatar color="gray" fallback="#"></Avatar>
+            <Link className={expanded ? "inline transition-all" : 'hidden transition-all'} href="/">
+              <h1 className="font-extrabold text-black">BroCollie</h1>
+              <Text as="div" size="1" className="text-black">
+                Admin
+              </Text>
+            </Link>
           </div>
-          
-          <Button className="cursor-pointer" onClick={() => setExpanded(curr => !curr)} variant="soft" color="gray" radius="full">
-          {expanded ? <DoubleArrowLeftIcon></DoubleArrowLeftIcon> : <DoubleArrowRightIcon></DoubleArrowRightIcon>}
-           
-            </Button>
+          <CaretSortIcon size="3" className="cursor-pointer"></CaretSortIcon>
         </div>
+
+        {/** Navigation Links **/}
         <ul className="flex-1 p-3 ">
           {navLinks.map((link) => {
             const Icon = link.icon
             return (
               <Link
                 key={link.name}
-                to={link.link}
+                href={link.link}
                 className={
                   expanded
-                    ? 'text-sm flex transition-all px-4 py-2 items-center gap-4 hover:bg-zinc-700 rounded-md'
-                    : 'text-sm flex justify-center transition-all px-4 py-2 hover:bg-zinc-700 rounded-md'
+                    ? 'text-sm flex transition-all px-4 py-2 items-center gap-4 hover:bg-zinc-200 rounded-md'
+                    : 'text-sm flex justify-center transition-all px-4 py-2 hover:bg-zinc-200 rounded-md'
                 }
               >
                 <Icon className={expanded ? 'transition-all' : 'block'} />
@@ -49,6 +50,8 @@ const Sidebar = () => {
             )
           })}
         </ul>
+
+        {/** User Card**/}
         <div className=" flex p-3">
           <Box className="transition-all" maxWidth={expanded ? "240px" : "56px"}>
             <Card>
@@ -60,10 +63,10 @@ const Sidebar = () => {
                   fallback="T"
                 />
                 <Box className="transition-all">
-                  <Text   as="div" size="2" weight="medium">
+                  <Text as="div" size="2" weight="medium">
                     John Smith
                   </Text>
-                  <Text as="div" size="1" color="gray">
+                  <Text as="div" size="1">
                     johnsmith@gmail.com
                   </Text>
                 </Box>

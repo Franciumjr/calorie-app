@@ -2,7 +2,7 @@
 import { Skeleton } from '@radix-ui/themes'
 const CardSkeleton = () => {
   return (
-    <div className="p-6 bg-zinc-700/50 rounded-2xl flex flex-col items-center">
+    <div className="p-6 bg-zinc-100 rounded-2xl flex flex-col items-center">
     {/*  image */}
     <Skeleton className="w-40 h-40 rounded-lg mb-4" />
     

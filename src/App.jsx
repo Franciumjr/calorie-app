@@ -1,13 +1,13 @@
 
 
-import Dashboard from './components/dashboard/Dashboard'
+import Dashboard from './app/home/page'
 import Card from './components/Card'
 import Loading from './components/Loading'
 import { Suspense } from 'react'
-import { Theme , Skeleton } from '@radix-ui/themes'
+import { Theme, Skeleton } from '@radix-ui/themes'
 import Sidebar from "./components/Sidebar";
 import AddButton from './components/AddButton'
-import Food from "./components/Food"
+import Food from "./app/food/page"
 
 
 function App() {
@@ -15,13 +15,13 @@ function App() {
 
   return (
     <>
-      <Theme appearance='dark'>
-        
-      <div className='flex flex-row '>
-        <AddButton></AddButton>
-        <Sidebar></Sidebar>
-        <Dashboard></Dashboard>
-      </div>
+      <Theme >
+
+        <div className='flex flex-row '>
+          <AddButton></AddButton>
+          <Sidebar></Sidebar>
+          <Dashboard></Dashboard>
+        </div>
       </Theme>
     </>
   )
